@@ -1,29 +1,15 @@
 import { createStore } from "redux";
 
 
-const intialValue = {
-    result: 4,
-    lastValue: []
-  }
-const reducer = (state = intialValue, action)=>{
+const reducer = (state, action)=>{
   switch (action.type) {
     case "ADD":
-      //state = state + action.payload;
-      state = {
-        ...state,
-        result : state.result+action.payload,
-        lastValue : [...state.lastValue, action.payload]
-      }
+      state = state + action.payload;
 
       break;
 
     case "SUBTRACT":
-      //state = state - action.payload;
-      state = {
-        ...state,
-        result : state.result-action.payload,
-        lastValue : [...state.lastValue, action.payload]
-      }
+      state = state - action.payload;
 
       break;
     default:
@@ -32,7 +18,7 @@ const reducer = (state = intialValue, action)=>{
   return state;
 }
 
-const store = createStore(reducer);
+const store = createStore(reducer, 1);
 
 store.subscribe(() => {
     console.log("Store updated!", store.getState());
