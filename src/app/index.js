@@ -1,41 +1,31 @@
-import { createStore } from "redux";
+import React from "react";
+import {render} from "react-dom";
 
+import { User } from './components/User';
+import { Main } from './components/Main';
 
-const reducer = (state, action)=>{
-  switch (action.type) {
-    case "ADD":
-      state = state + action.payload;
+class App extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            username: "Max"
+        };
+    }
 
-      break;
+    changeUsername(newName) {
+        this.setState({
+            username: newName
+        });
+    }
 
-    case "SUBTRACT":
-      state = state - action.payload;
-
-      break;
-    default:
-
-  }
-  return state;
+    render() {
+        return (
+            <div className="container">
+                <Main changeUsername={this.changeUsername.bind(this)}/>
+                <User username={this.state.username}/>
+            </div>
+        );
+    }
 }
 
-const store = createStore(reducer, 1);
-
-store.subscribe(() => {
-    console.log("Store updated!", store.getState());
-});
-
-
-store.dispatch({
-  "type": "ADD",
-  "payload": 4
-});
-
-store.dispatch({
-  "type": "ADD",
-  "payload": 9
-});
-
-store.dispatch({
-  "type": "SUBTRACT",
-  "payload": 3
-});
+render(<App />, window.document.getElementById('app'));
