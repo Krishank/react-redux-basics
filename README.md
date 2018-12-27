@@ -1,2 +1,5 @@
 # react-redux-basics
-# 01-immutable-state this branch will explain why immutability is important while updating the state watch this video for more information (https://www.youtube.com/watch?v=7bMTJxvEJiE&index=4&list=PL55RiY5tL51rrC3sh8qLiYHqUV3twEYU_)
+# 03-multiple-reducers 
+1. Use Multiple Reducers
+2. How to Use Combine Reducers
+3. Actions in Reducers Should have uniq names
