@@ -1,6 +1,9 @@
+import React from "react";
+import { render } from "react-dom";
+import App  from "./components/App";
 import { createStore, combineReducers, applyMiddleware } from "redux";
-import {logger} from "redux-logger"
-
+import { logger } from "redux-logger"
+import { Provider } from "react-redux";
 
 const mathReducer = (state = {
     result: 1,
@@ -60,42 +63,15 @@ const userReducer = (state = {
   return state;
 }
 
-//Insted of importing a redux-logger you can create your own logger and pass it in applyMiddleware
-// const myLogger = (state)=> (next)=> (action)=>{
-//   console.log("Action Logged", action);
-//   next(action);
-// }
-
-
-
 const store = createStore(
   combineReducers({mathReducer, userReducer}),
   {},
   applyMiddleware(logger)
 );
 
-
-store.dispatch({
-  "type": "ADD",
-  "payload": 4
-});
-
-store.dispatch({
-  "type": "ADD",
-  "payload": 9
-});
-
-store.dispatch({
-  "type": "SUBTRACT",
-  "payload": 3
-});
-
-store.dispatch({
-  "type": "SET_NAME",
-  "payload": "Anuj Sachan"
-});
-
-store.dispatch({
-  "type": "SET_AGE",
-  "payload": 30
-});
+// Connect Store with react App
+  render(
+    <Provider store={store}>
+      <App />
+    </Provider>,
+    window.document.getElementById('app'));

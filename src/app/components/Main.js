@@ -13,7 +13,8 @@ export class Main extends React.Component {
                     <div className="col-xs-12">
                         <button
                             className="btn btn-primary"
-                            onClick={() => this.props.changeUsername('Krishank')}>Change the Username</button>
+                            onClick={() => this.props.changeUsername()}>Change the Username
+                        </button>
                     </div>
                 </div>
             </div>
