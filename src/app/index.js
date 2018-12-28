@@ -4,10 +4,6 @@ import App  from "./container/App";
 import { Provider } from "react-redux";
 import store from "./store"
 
-
-
-
-
 // Connect Store with react App
   render(
     <Provider store={store}>

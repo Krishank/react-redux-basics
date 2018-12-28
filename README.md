@@ -1,2 +1,6 @@
 # react-redux-basics
-#  06-smart-and-dumb-component will explain not all component needs state some components are dumb and some are smart (deals with sate and pass props to dumb components) please find the smart-and-dumb-components.png on root.
+#  08-async-actions will explain how to use async code in action like if you have to make a Ajax call to fetch products and then pass it tp reducers.
+
+We have to use thease 2 packages
+import thunk from "redux-thunk";
+import promise from "redux-promise-middleware";
